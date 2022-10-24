@@ -131,19 +131,19 @@ class Internet {
      * Enter text in the iframe
      * @param {String} text the text to be entered
      */
-    sendTextToBody(text) {
-        this.iframeBody.waitForDisplayed()
-        this.iframeBody.click()
-        this.iframeBody.clearValue()
-        this.iframeBody.keys(text)
+    async sendTextToBody(text) {
+        await this.iframeBody.waitForDisplayed()
+        await this.iframeBody.click()
+        await this.iframeBody.clearValue()
+        await this.iframeBody.keys(text)
     }
 
     /**
      * Click the "click here" link
      */
-    clickHereLink() {
-        this.hereLink.waitForDisplayed()
-        this.hereLink.click()
+    async clickHereLink() {
+        await this.hereLink.waitForDisplayed()
+        await this.hereLink.click()
     }
 
     /**
