@@ -61,9 +61,9 @@ class Internet {
     /** 
      * Click the Page Button
      */
-    clickPageButton() {
-        this.pageButton.waitForDisplayed()
-        this.pageButton.click()
+    async clickPageButton() {
+        await this.pageButton.waitForDisplayed()
+        await this.pageButton.click()
     }
 
     /** 
