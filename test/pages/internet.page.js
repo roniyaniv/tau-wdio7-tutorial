@@ -113,18 +113,18 @@ class Internet {
     /**
      * Drag and drop
      */
-    dragDraggableToDroppable() {
-        this.draggable.waitForDisplayed()
-        this.draggable.dragAndDrop(this.droppable)
+    async dragDraggableToDroppable() {
+        // await this.draggable.waitForDisplayed()
+        await this.draggable.dragAndDrop(await this.droppable)
 
     }
 
     /**
      * Drag box A to box B
      */
-    dragColumnAToColumnB() {
-        this.columnA.waitForDisplayed()
-        this.columnA.dragAndDrop(this.columnB)
+    async dragColumnAToColumnB() {
+        // await this.columnA.waitForDisplayed()
+        await this.columnA.dragAndDrop(await this.columnB)
     }
 
     /**
