@@ -1,19 +1,19 @@
-const InternetPage = require('../pages/internet.page')
+const internetPage = require('../pages/internet.page')
 
 describe("Wait For Enabled", function () {
     it('should wait for the input field to be enabled', async () => {
-        await browser.url(`${browser.options.baseUrl}/dynamic_controls`)
-        await InternetPage.enableButton.waitForDisplayed()
-        await InternetPage.clickEnableButton()
-        await InternetPage.inputEnabledField.waitForEnabled({ timeout: 4000})
-        await expect(InternetPage.inputEnabledField).toBeEnabled()
-        await expect(InternetPage.inputEnabledField).not.toBeDisabled() // same as above
-        await expect(InternetPage.enableButton).toHaveAttributeContaining('autocomplete', 'off')
+        await browser.url('/dynamic_controls')
+        await internetPage.clickEnableButton()
+        await internetPage.inputField.waitForEnabled()
+        await expect(internetPage.inputField).toBeEnabled()
+        await expect(internetPage.inputField).not.toBeDisabled() // same as above
+        // await browser.debug()
+    }),
+    it('should wait for the input field to be disabled', async () => {
+        await internetPage.clickEnableButton()
+        await internetPage.inputField.waitForEnabled({reverse: true})
+        await expect(internetPage.inputField).toBeDisabled()
         // await browser.debug()
     })
-    // it('should wait for the input field to be disabled', () => {
-    //     internetPage.clickEnableButton()
-    //     internetPage.inputEnabledField.waitForEnabled({timeout:4000, reverse:true})
-    //     assert.equal(false, internetPage.inputEnabledField.isEnabled())
-    // })
+
 })

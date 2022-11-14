@@ -48,14 +48,14 @@ class Internet {
     get pageButton() { return $('#checkbox-example button') }
 
     get enableButton() { return $('#input-example button') }
-    get inputEnabledField() { return $('#input-example input') }
+    get inputField() { return $('#input-example input') }
 
     /** 
      * Click the Enable/Disable Button
      */
-    clickEnableButton() {
-        this.enableButton.waitForDisplayed()
-        this.enableButton.click()
+    async clickEnableButton() {
+        await this.enableButton.waitForDisplayed()
+        await this.enableButton.click()
     }
 
     /** 
@@ -69,17 +69,17 @@ class Internet {
     /** 
      * Click the Example Button
      */
-    clickExampleButton() {
-        this.exampleButton.waitForDisplayed()
-        this.exampleButton.click()
+    async clickExampleButton() {
+        await this.exampleButton.waitForDisplayed()
+        await this.exampleButton.click()
     }
     /**
      * Clicks the delete button
      * @param {Number} index index of the element
      */
-    clickDeleteButton(index) {
-        this.deleteButton(index).waitForDisplayed()
-        this.deleteButton(index).click()
+    async clickDeleteButton(index) {
+        await this.deleteButton(index).waitForDisplayed()
+        await this.deleteButton(index).click()
     }
 
     /**
