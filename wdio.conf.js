@@ -1,3 +1,12 @@
+const url = require('./urls')
+const ENV = process.env.ENV
+
+
+if(!ENV || !['qa', 'dev', 'staging'].includes(ENV)){
+    console.log("Please use the following format when using the test script: ENV=qa|dev|staging")
+    process.exit()
+}
+
 exports.config = {
     //
     // ====================
@@ -56,7 +65,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'safari',
+        browserName: 'MicrosoftEdge',
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -94,7 +103,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://the-internet.herokuapp.com',
+    baseUrl: url[process.env.ENV],
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

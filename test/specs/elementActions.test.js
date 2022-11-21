@@ -1,5 +1,6 @@
 const internetPage = require('../pages/internet.page')
-// const loginData = require('../data/logindata')
+const loginData = require('../data/logindata.js')
+
 
 describe('Test element actions', function () {
     // it('should click element', async () => {
@@ -22,11 +23,11 @@ describe('Test element actions', function () {
     // })
     it('should enter username + password', async () => {
         await browser.url('/login')
-        await internetPage.enterUsername('nerdyhiker')
-        await expect(internetPage.username).toHaveValue('nerdyhiker')
+        await internetPage.enterUsername(loginData.userName)
+        await expect(internetPage.username).toHaveValue(loginData.userName)
         // await browser.debug()
-        await internetPage.enterPassword('SuperSecretPassword!')
-        await expect(internetPage.password).toHaveValue('SuperSecretPassword!')
+        await internetPage.enterPassword(loginData.password)
+        await expect(internetPage.password).toHaveValue(loginData.password)
     })
 
     // it('should enter password', async () => {
@@ -42,6 +43,5 @@ describe('Test element actions', function () {
         await internetPage.password.click()
         await internetPage.password.clearValue()
         await expect(internetPage.password).toHaveValue('')
-        await browser.pause(5000)
     })
 })
